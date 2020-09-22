@@ -7,11 +7,11 @@ list_of = root.findall('channel/item')
 for news in list_of:
     description = news.find('description').text
     for word in description.split():
-        if len(word) > 6:
-            if word in repetition_dict:
-                repetition_dict[word] = repetition_dict[word] + 1
+        if len(word.lower()) > 6:
+            if word.lower() in repetition_dict:
+                repetition_dict[word.lower()] = repetition_dict[word.lower()] + 1
                 continue
-            repetition_dict[word] = 1
+            repetition_dict[word.lower()] = 1
 for i in range(1, 11):
     for k, v in repetition_dict.items():
         max_ = max(repetition_dict.values())
